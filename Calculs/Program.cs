@@ -1,5 +1,5 @@
 ﻿/**
- * Application "Calculs" v01 (b5 a218)
+ * Application "Calculs" v03 (b5 a218)
  * author : Emds
  * date : 24/05/2020
  */
@@ -19,6 +19,7 @@ namespace Calculs
             int choix; // saisie du choix de l'utilsiateur
             int correct = 0; // utiliser dans la boucle try {} ... catch{} pour vérifier la saisie 
             int compteur = 0; // compteur de bonne réponse 
+            int note = 0;
 
             // boucle sur le menu
             choix = 1;
@@ -63,6 +64,7 @@ namespace Calculs
                             Console.WriteLine("Veuillez saisir un entier naturel");
                         }
                     }
+                    note += 1; // compteur de question effectué 
                     // comparaison avec la bonne réponse
                     solution = val1 + val2;
                     if (reponse == solution)
@@ -93,6 +95,7 @@ namespace Calculs
                             Console.WriteLine("Veuillez saisir un entier naturel");
                         }
                     }
+                    note += 1; // compteur de question effectué 
                     // comparaison avec la bonne réponse
                     solution = val1 * val2;
                     if (reponse == solution)
@@ -111,7 +114,9 @@ namespace Calculs
                 }
             }
             Console.WriteLine("Fin du programme");
-            Console.WriteLine($"Vous avez obtenu {compteur} bonne(s) réponse(s) !");
+            Console.WriteLine($"Vous avez obtenu {compteur} bonne(s) réponse(s) sur {note} question(s) !");
+            int resultat = (20 * compteur) / note;
+            Console.WriteLine($"Vous avez : {resultat} / 20 "); 
             Console.ReadLine();
         }
 
