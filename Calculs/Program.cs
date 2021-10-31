@@ -13,13 +13,17 @@ namespace Calculs
         {
             // variables 
             Random rand = new Random(); // outil de génération de nombre aléatoire
-            int val1, val2 ; // mémorisation de nombres aléatoires
-            int solution; // calcul de la solution
-            int reponse = 0; // saisie de la réponse de l'utilisateur
-            int choix; // saisie du choix de l'utilsiateur
-            int correct = 0; // utiliser dans la boucle try {} ... catch{} pour vérifier la saisie 
-            int compteur = 0; // compteur de bonne réponse 
-            int note = 0;
+            int val1, val2, solution, choix, reponse = 0, correct = 0, compteur = 0, note = 0, resultat = 0  ; 
+           /*
+            * val1 / val 2 = permet d'avoir les 2 paramètres pour l'addition et la multiplication 
+            * choix = choix des calculs à effectuer 
+            * solution = solution de l'opération 
+            * réponse = réponse de l'utilisateur 
+            * correct = variable utilisé pour la boucle try{}... catch{}
+            * compteur = compteur de bonne réponse 
+            * note = nombre de question au total 
+            * resultat = note de l'utilisateur sur 20 
+            */
 
             // boucle sur le menu
             choix = 1;
@@ -49,7 +53,6 @@ namespace Calculs
                 if (choix == 1)
                 {
                     correct = 0;
-
                     // saisie de la réponse
                     while (correct != 1)
                     {
@@ -80,7 +83,6 @@ namespace Calculs
                 else if (choix == 2)
                 {
                     correct = 0;
-
                     // saisie de la réponse
                     while (correct != 1)
                     {
@@ -114,9 +116,15 @@ namespace Calculs
                 }
             }
             Console.WriteLine("Fin du programme");
-            Console.WriteLine($"Vous avez obtenu {compteur} bonne(s) réponse(s) sur {note} question(s) !");
-            int resultat = (20 * compteur) / note;
-            Console.WriteLine($"Vous avez : {resultat} / 20 "); 
+
+            // condition permettant d'afficher une note
+            // si l'utilisateur quitte le programme dès le lancement, alors la condition n'est pas effectué car il y a 0 question, 0 réponse
+            if (note != 0)
+            {
+                resultat = (20 * compteur) / note;
+                Console.WriteLine($"Vous avez obtenu {compteur} bonne(s) réponse(s) sur {note} question(s) !");
+                Console.WriteLine($"Vous avez : {resultat} / 20 ");
+            }
             Console.ReadLine();
         }
 
